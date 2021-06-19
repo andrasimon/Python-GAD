@@ -1,4 +1,4 @@
-# funcție care primește un număr nedefinit de parametrii și calculeaza suma parametrilor care reprezintă
+# funcție care primește un număr nedefinit de parametri și calculeaza suma parametrilor care reprezintă
 # numere întregi sau reale
 def real_sum(*args, **kwargs):
     suma = 0
@@ -18,7 +18,7 @@ def sum_n(n):
     return n + sum_n(n - 1)
 
 
-# suma numerelor pare de la [0, n]
+# suma numerelor pare de la [0, n] recursiv
 def sum_n_even(n):
     n = n - n % 2
     if n == 0:
@@ -26,12 +26,22 @@ def sum_n_even(n):
     return n + sum_n_even(n - 2)
 
 
-# suma numerelor impare de la [0, n]
+# suma numerelor impare de la [0, n] recursiv
 def sum_n_odd(n):
     n = n - int(not (n % 2))
     if n == 1:
         return 1
     return n + sum_n_odd(n - 2)
+
+
+def return_int():
+    n = input('Insert your data here --> ')
+    if n.isnumeric():
+        return n
+    elif n[0] in ('+', '-'):
+        if n[1:].isnumeric():
+            return n
+    return 0
 
 
 if __name__ == '__main__':
@@ -44,3 +54,5 @@ if __name__ == '__main__':
     print('sum_n_even(5) --> {}'.format(sum_n_even(5)))
 
     print('sum_n_odd(6) --> {}'.format(sum_n_odd(6)))
+
+    print('return_int() --> {}'.format(return_int()))
