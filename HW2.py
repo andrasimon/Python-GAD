@@ -20,19 +20,21 @@ def sum_n(n):
 
 # suma numerelor pare de la [0, n] recursiv
 def sum_n_even(n):
-    n = n - n % 2
+    even_n = n - n % 2
     if n == 0:
         return 0
-    return n + sum_n_even(n - 2)
+    return even_n + sum_n_even(even_n - 2)
 
 
 # suma numerelor impare de la [0, n] recursiv
 def sum_n_odd(n):
-    n = n - int(not (n % 2))
+    odd_n = n - int(not (n % 2))
     if n == 1:
         return 1
-    return n + sum_n_odd(n - 2)
+    return odd_n + sum_n_odd(odd_n - 2)
 
+def sum_all_even_odd(n):
+    pass
 
 def return_int():
     n = input('Insert your data here --> ')
@@ -42,6 +44,15 @@ def return_int():
         if n[1:].isnumeric():
             return n
     return 0
+
+
+def return_int_v2():
+    n = input('Insert your data here --> ')
+    try:
+        int_n = int(n)
+        return n
+    except ValueError:
+        return 0
 
 
 if __name__ == '__main__':
@@ -56,3 +67,5 @@ if __name__ == '__main__':
     print('sum_n_odd(6) --> {}'.format(sum_n_odd(6)))
 
     print('return_int() --> {}'.format(return_int()))
+
+    print('return_int_v2() --> {}'.format(return_int_v2()))
